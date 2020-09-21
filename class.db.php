@@ -1,4 +1,8 @@
 <?php
+namespace yourNameSpace\Database;
+
+use \PDO;
+
 class Database extends PDO {
 	private $error;
 	private $sql;
@@ -100,7 +104,7 @@ class Database extends PDO {
 
 	public function insert($table, $info) {
 		$fields = $this->filter($table, $info);
-		$sql = "INSERT INTO " . $table . " (" . implode($fields, ", ") . ") VALUES (:" . implode($fields, ", :") . ");";
+		$sql = "INSERT INTO " . $table . " (" . implode(", ", $fields) . ") VALUES (:" . implode(", :", $fields) . ");";
 		$bind = array();
 		foreach($fields as $field)
 			$bind[":$field"] = $info[$field];
@@ -109,7 +113,7 @@ class Database extends PDO {
 
 	public function replace($table, $info) {
 		$fields = $this->filter($table, $info);
-		$sql = "REPLACE INTO " . $table . " (" . implode($fields, ", ") . ") VALUES (:" . implode($fields, ", :") . ");";
+		$sql = "REPLACE INTO " . $table . " (" . implode(", ", $fields) . ") VALUES (:" . implode(", :", $fields) . ");";
 		$bind = array();
 		foreach($fields as $field)
 			$bind[":$field"] = $info[$field];
@@ -143,6 +147,20 @@ class Database extends PDO {
 		$sql .= ";";
 		return $this->run($sql, $bind);
 	}	
+
+	public function selectInnerJoin($table, $where="", $bind="", $fields="*", $tableJoin, $match, $distinct=false) {
+		if ($distinct) {
+			$sql = "SELECT DISTINCT " . $fields . " FROM " . $table . " INNER JOIN " . $tableJoin . " ON "  . $match;
+		} else {
+			$sql = "SELECT " . $fields . " FROM " . $table . " INNER JOIN " . $tableJoin . " ON "  . $match;
+		}
+		if(!empty($where))
+		$sql .= " WHERE " . $where;
+		$sql .= ";";
+		// echo $sql; die;
+		return $this->run($sql, $bind);
+	}	
+	
 
 	public function directQuery($direct, $bind="") {
 		$sql = $direct;
