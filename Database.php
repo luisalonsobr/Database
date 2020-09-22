@@ -1,5 +1,5 @@
 <?php
-namespace yourNameSpace\Database;
+namespace luisalonsobr\Database;
 
 use \PDO;
 
