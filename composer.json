@@ -1,4 +1,4 @@
 {
-    "name": "luisalonsobr/php-pdo-wrapper-class",
-    "description": "PDO wrapper for database querying"
+    "name": "luisalonsobr/php-pdo-wrapper",
+    "description": "PDO wrapper class for safe database querying"
 }
