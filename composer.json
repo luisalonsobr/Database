@@ -3,5 +3,6 @@
     "description": "PDO wrapper class for safe database querying",
      "require": {
         "php": ">=7.0.0"
-    }
+    },
+    "license": "GPL-3.0"
 }
