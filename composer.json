@@ -1,7 +1,7 @@
 {   
     "autoload": {
         "psr-4": {
-            "luisalonsobr\\": "/"
+            "luisalonsobr\\": "src/"
         }
     },
     "name": "luisalonsobr/database",
