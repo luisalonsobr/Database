@@ -1,4 +1,9 @@
-{
+{   
+    "autoload": {
+        "psr-4": {
+            "luisalonsobr\\": "/"
+        }
+    },
     "name": "luisalonsobr/database",
     "description": "PDO wrapper class for safe database querying",
      "require": {
