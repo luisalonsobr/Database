@@ -1,13 +1,13 @@
 {   
-    "autoload": {
-        "psr-4": {
-            "luisalonsobr\\": "src/"
-        }
-    },
-    "name": "luisalonsobr/database",
+     "name": "luisalonsobr/database",
     "description": "PDO wrapper class for safe database querying",
      "require": {
         "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "luisalonsobr\\Database\\": "src/"
+        }
     },
     "license": "GPL-3.0"
 }
