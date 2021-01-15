@@ -13,7 +13,7 @@ class Database extends PDO {
 
 	public function __construct($dsn, $user="", $passwd="") {
 		$options = [
-			PDO::ATTR_PERSISTENT => true, 
+			PDO::ATTR_PERSISTENT => false, 
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 		];
 
