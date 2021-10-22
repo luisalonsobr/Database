@@ -149,18 +149,18 @@ class Database extends PDO {
 		return $this->run($sql, $bind);
 	}	
 
-	public function selectInnerJoin($table, $where="", $bind="", $fields="*", $tableJoin, $match, $distinct=false) {
-		if ($distinct) {
-			$sql = "SELECT DISTINCT " . $fields . " FROM " . $table . " INNER JOIN " . $tableJoin . " ON "  . $match;
-		} else {
-			$sql = "SELECT " . $fields . " FROM " . $table . " INNER JOIN " . $tableJoin . " ON "  . $match;
-		}
-		if(!empty($where))
-		$sql .= " WHERE " . $where;
-		$sql .= ";";
-		// echo $sql; die;
-		return $this->run($sql, $bind);
-	}	
+	// public function selectInnerJoin($table, $where="", $bind="", $fields="*", $tableJoin, $match, $distinct=false) {
+	// 	if ($distinct) {
+	// 		$sql = "SELECT DISTINCT " . $fields . " FROM " . $table . " INNER JOIN " . $tableJoin . " ON "  . $match;
+	// 	} else {
+	// 		$sql = "SELECT " . $fields . " FROM " . $table . " INNER JOIN " . $tableJoin . " ON "  . $match;
+	// 	}
+	// 	if(!empty($where))
+	// 	$sql .= " WHERE " . $where;
+	// 	$sql .= ";";
+	// 	// echo $sql; die;
+	// 	return $this->run($sql, $bind);
+	// }	
 	
 
 	public function directQuery($direct, $bind="") {
